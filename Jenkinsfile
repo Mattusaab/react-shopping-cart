@@ -8,11 +8,12 @@ pipeline {
             
         }
     }
-}    
-    stage('Building image') {
+    
+    stage('Build Docker Image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          sh 'docker build -t daara13/helloworld .'
         }
       }
     }
+}
